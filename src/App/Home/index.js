@@ -12,7 +12,7 @@ import InfoPanel from '../InfoPanel';
 
 const Home = () => {
     return (    
-        <div className="test">
+        <div className="Home">
            <InfoPanel></InfoPanel>
         </div>
     );  

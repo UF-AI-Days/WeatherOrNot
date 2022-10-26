@@ -3,24 +3,27 @@
 .Header {
   position: fixed;
   top: 0;
-  height: 4rem;
+  height: 3.5rem;
   width: 100%;
   z-index: 10;
 
   display: grid;
   align-items: center;
   
-  background-color: $vanilla;
+  background-color: black;
   color: white;
+
+  box-shadow: 0 2px 4px rgba(57, 63, 72, 0.3);
 }
 
 .PhantomHeader { 
   margin: 0 auto;
   width: 100%;
-  height: 4rem;
+  height: 3.5rem;
 }
 
 .Header h1 {
-  color: #76575d;
+  color: white;
   cursor: pointer;
+  margin: 0 auto;
 }

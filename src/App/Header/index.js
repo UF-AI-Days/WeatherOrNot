@@ -26,7 +26,7 @@ const Header = () => {
             padding: '0 2rem'
           }}>
             <Grid item>
-              <h1 onClick={returnHome}>PROJECT</h1>
+              <h1 onClick={returnHome}>UNTITLED</h1>
             </Grid>
           </Grid>
 
@@ -37,7 +37,7 @@ const Header = () => {
             }}>
               <Grid item>
                 <IconButton>
-                  <InfoIcon sx={{ color: "#76575d" }}/>
+                  <InfoIcon sx={{ color: "white" }}/>
                 </IconButton>
               </Grid>
               <Grid item>
@@ -45,7 +45,7 @@ const Header = () => {
                         target="_blank"
                         rel="noreferrer">
                   <IconButton>
-                      <CodeIcon sx={{ color: "#76575d" }} />
+                      <CodeIcon sx={{ color: "white" }} />
                   </IconButton>
                 </a>
               </Grid>
