@@ -1,7 +1,7 @@
 import React from 'react';
 import Grid from '@mui/material/Grid';
 import ImageSlider from './ImageSlider';
-import InfoBox from './InfoBox'
+import StatBox from './StatBox'
 import './index.scss';
 
 const InfoPanel  = () => {
@@ -23,13 +23,13 @@ const InfoPanel  = () => {
                                 justifyContent="center"
                             >
                                 <Grid item>
-                                    <InfoBox>lol</InfoBox>
+                                    <StatBox>lol</StatBox>
                                 </Grid>
                                 <Grid item>
-                                    <InfoBox>lol2</InfoBox>
+                                    <StatBox>lol2</StatBox>
                                 </Grid>
                                 <Grid item>
-                                    <InfoBox>lol3</InfoBox>
+                                    <StatBox>lol3</StatBox>
                                 </Grid>
                             </Grid>
                         </Grid>
@@ -44,13 +44,13 @@ const InfoPanel  = () => {
                                 justifyContent="center"
                             >
                                 <Grid item>
-                                    <InfoBox>lol</InfoBox>
+                                    <StatBox>lol</StatBox>
                                 </Grid>
                                 <Grid item>
-                                    <InfoBox>lol2</InfoBox>
+                                    <StatBox>lol2</StatBox>
                                 </Grid>
                                 <Grid item>
-                                    <InfoBox>lol3</InfoBox>
+                                    <StatBox>lol3</StatBox>
                                 </Grid>
                             </Grid>
                         </Grid>

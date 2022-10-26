@@ -1,5 +1,5 @@
 import React from 'react';
-import '../InfoPanel';
+import InfoPanel from '../InfoPanel';
 import './index.scss';
 
 
