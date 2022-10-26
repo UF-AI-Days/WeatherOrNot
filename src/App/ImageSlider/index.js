@@ -30,6 +30,7 @@ const ImageSlider  = (props) => {
                             step={10}
                             min={0}
                             max={image_sources.length*10}
+                            onChange={(e,value,activeThumb) => { setImageIndex(value/10) }}
                         />
                     </Box>
                 </Grid>
