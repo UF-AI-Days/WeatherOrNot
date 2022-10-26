@@ -1,22 +1,8 @@
 import React from 'react';
-import IconButton from '@mui/material/IconButton';
 import Grid from '@mui/material/Grid';
-import InfoIcon from '@mui/icons-material/Info';
-import CodeIcon from '@mui/icons-material/Code';
+import ImageSlider from './ImageSlider';
+import InfoBox from './InfoBox'
 import './index.scss';
-import { useNavigate } from "react-router-dom";
-import { styled } from '@mui/material/styles';
-import Paper from '@mui/material/Paper';
-import ImageSlider from '../ImageSlider';
-
-
-const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-    ...theme.typography.body2,
-    padding: theme.spacing(1),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-}));
 
 const InfoPanel  = () => {
     return (   
@@ -37,13 +23,13 @@ const InfoPanel  = () => {
                                 justifyContent="center"
                             >
                                 <Grid item>
-                                    <Item>lol</Item>
+                                    <InfoBox>lol</InfoBox>
                                 </Grid>
                                 <Grid item>
-                                    <Item>lol2</Item>
+                                    <InfoBox>lol2</InfoBox>
                                 </Grid>
                                 <Grid item>
-                                    <Item>lol3</Item>
+                                    <InfoBox>lol3</InfoBox>
                                 </Grid>
                             </Grid>
                         </Grid>
@@ -58,13 +44,13 @@ const InfoPanel  = () => {
                                 justifyContent="center"
                             >
                                 <Grid item>
-                                    <Item>lol</Item>
+                                    <InfoBox>lol</InfoBox>
                                 </Grid>
                                 <Grid item>
-                                    <Item>lol2</Item>
+                                    <InfoBox>lol2</InfoBox>
                                 </Grid>
                                 <Grid item>
-                                    <Item>lol3</Item>
+                                    <InfoBox>lol3</InfoBox>
                                 </Grid>
                             </Grid>
                         </Grid>
