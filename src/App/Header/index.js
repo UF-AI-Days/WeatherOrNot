@@ -26,7 +26,7 @@ const Header = () => {
             padding: '0 2rem'
           }}>
             <Grid item>
-              <h1 onClick={returnHome}>NINHANDO</h1>
+              <h1 onClick={returnHome}>PROJECT</h1>
             </Grid>
           </Grid>
 
