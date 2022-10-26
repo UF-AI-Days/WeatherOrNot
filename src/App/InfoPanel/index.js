@@ -29,44 +29,44 @@ const InfoPanel  = () => {
                     sx={{ minHeight: '100%' }}
                 >   
                     <Grid item>
-                        <Grid
-                            container
-                            direction="column"
-                            alignItems="flex-start"
-                            justifyContent="center"
-                        >
-                            <Grid item>
-                                <Item>lol</Item>
-                            </Grid>
-                            <Grid item>
-                                <Item>lol2</Item>
-                            </Grid>
-                            <Grid item>
-                                <Item>lol3</Item>
-                            </Grid>
-                        </Grid>
-                    </Grid>
-                    <Grid item>
-                        <img src="hurricaneSandy-1.jpg"></img>
-                    </Grid>
-                    <Grid item>
-                        <Grid
-                            container
-                            direction="column"
-                            alignItems="flex-start"
-                            justifyContent="center"
-                        >
-                            <Grid item>
-                                <Item>lol</Item>
-                            </Grid>
-                            <Grid item>
-                                <Item>lol2</Item>
-                            </Grid>
-                            <Grid item>
-                                <Item>lol3</Item>
+                            <Grid
+                                container
+                                direction="column"
+                                alignItems="flex-start"
+                                justifyContent="center"
+                            >
+                                <Grid item>
+                                    <Item>lol</Item>
+                                </Grid>
+                                <Grid item>
+                                    <Item>lol2</Item>
+                                </Grid>
+                                <Grid item>
+                                    <Item>lol3</Item>
+                                </Grid>
                             </Grid>
                         </Grid>
-                    </Grid>
+                        <Grid item>
+                            <img src="hurricaneSandy-1.jpg" ></img>
+                        </Grid>
+                        <Grid item>
+                            <Grid
+                                container
+                                direction="column"
+                                alignItems="flex-start"
+                                justifyContent="center"
+                            >
+                                <Grid item>
+                                    <Item>lol</Item>
+                                </Grid>
+                                <Grid item>
+                                    <Item>lol2</Item>
+                                </Grid>
+                                <Grid item>
+                                    <Item>lol3</Item>
+                                </Grid>
+                            </Grid>
+                        </Grid>
 
                 </Grid>
             </div>

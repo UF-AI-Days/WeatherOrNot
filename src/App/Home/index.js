@@ -7,7 +7,7 @@ import './index.scss';
 import { useNavigate } from "react-router-dom";
 import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
-//import InfoPanel from './InfoPanel';
+import InfoPanel from '../InfoPanel';
 
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -19,57 +19,7 @@ const Item = styled(Paper)(({ theme }) => ({
 const Home = () => {
     return (    
         <div className="test">
-           <div className="Info">
-                <Grid
-                    container
-                    direction="row"
-                    wrap="nowrap"
-                    alignItems="flex-start"
-                    justifyContent="center"
-                    sx={{ minHeight: '100%' }}
-                >   
-                    <Grid item>
-                            <Grid
-                                container
-                                direction="column"
-                                alignItems="flex-start"
-                                justifyContent="center"
-                            >
-                                <Grid item>
-                                    <Item>lol</Item>
-                                </Grid>
-                                <Grid item>
-                                    <Item>lol2</Item>
-                                </Grid>
-                                <Grid item>
-                                    <Item>lol3</Item>
-                                </Grid>
-                            </Grid>
-                        </Grid>
-                        <Grid item>
-                            <img src="hurricaneSandy-1.jpg" ></img>
-                        </Grid>
-                        <Grid item>
-                            <Grid
-                                container
-                                direction="column"
-                                alignItems="flex-start"
-                                justifyContent="center"
-                            >
-                                <Grid item>
-                                    <Item>lol</Item>
-                                </Grid>
-                                <Grid item>
-                                    <Item>lol2</Item>
-                                </Grid>
-                                <Grid item>
-                                    <Item>lol3</Item>
-                                </Grid>
-                            </Grid>
-                        </Grid>
-
-                </Grid>
-            </div>
+           
         </div>
     );  
 }
