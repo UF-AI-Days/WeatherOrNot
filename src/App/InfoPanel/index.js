@@ -7,6 +7,7 @@ import './index.scss';
 import { useNavigate } from "react-router-dom";
 import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
+import ImageSlider from '../ImageSlider';
 
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -47,7 +48,7 @@ const InfoPanel  = () => {
                             </Grid>
                         </Grid>
                         <Grid item>
-                            <img src="hurricaneSandy-1.jpg" ></img>
+                            <ImageSlider></ImageSlider>
                         </Grid>
                         <Grid item>
                             <Grid
