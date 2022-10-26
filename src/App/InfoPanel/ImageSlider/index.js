@@ -6,7 +6,6 @@ import Box from '@mui/material/Box'
 const image_sources = ["hurricaneSandy-1.jpg","logo192.png","logo512.png"]
 
 const ImageSlider  = (props) => {
-
     const [imageIndex, setImageIndex] = useState(0);
 
     return (  

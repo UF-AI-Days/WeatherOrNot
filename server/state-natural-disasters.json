@@ -1,0 +1,11 @@
+{
+    "states": [
+        {
+            "Florida": [
+                
+                {"Tornado": {"num-per-year": 2}}, 
+                {"Hurricane": {"num-per-year": 10000}}
+            ]
+        }
+    ]
+}
