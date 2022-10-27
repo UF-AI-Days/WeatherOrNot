@@ -31,7 +31,7 @@ const Header = () => {
           >
             <Grid item>
               <h1 className="Title" onClick={returnHome}>
-                Untitled
+                WeatherOrNot?
               </h1>
             </Grid>
           </Grid>

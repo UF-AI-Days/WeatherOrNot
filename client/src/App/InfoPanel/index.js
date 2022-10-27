@@ -13,8 +13,14 @@ const colors = [
   "#a55fa5",
 ];
 
-const testData = [5, 10, 15, 20];
-const years = ["2022", "2027", "2032", "2037"];
+const testData1 = [0, 8, 17, 20];
+const testData2 = [0, 0.8, 1.2, 2.7];
+const testData3 = [0, 68000, 74000, 93000];
+const testData4 = [1, 3.2, 4, 7];
+const testData5 = [0, 12, 17, 23];
+const testData6 = [4, 8, 12, 16];
+
+const years = ["2022", "2032", "2042", "2052"];
 const createData = (
   colorIndex,
   data,
@@ -43,14 +49,14 @@ const InfoPanel = ({ imageWidth, imageHeight }) => {
   const onChange = (index) => {
     if (index != 0) {
       setIndex(index);
-      setYear(index);
+      setYear(years[Math.trunc(index)]);
     }
   };
 
   const onUpload = (data) => {
     console.log(data);
     setLocation("Florida");
-    setLocation("2027");
+    setYear("2022");
   };
 
   return (
@@ -78,13 +84,40 @@ const InfoPanel = ({ imageWidth, imageHeight }) => {
             sx={{ height: "100%" }}
           >
             <Grid item>
-              <StatBox data={createData(0, testData, index)} index={index} />
+              <StatBox
+                data={createData(
+                  0,
+                  testData1,
+                  index,
+                  "Sea Level Rise",
+                  "inches"
+                )}
+                index={index}
+              />
             </Grid>
             <Grid item>
-              <StatBox data={createData(1, testData, index)} index={index} />
+              <StatBox
+                data={createData(
+                  1,
+                  testData2,
+                  index,
+                  "Temperature Increase",
+                  "°F"
+                )}
+                index={index}
+              />
             </Grid>
             <Grid item>
-              <StatBox data={createData(2, testData, index)} index={index} />
+              <StatBox
+                data={createData(
+                  2,
+                  testData3,
+                  index,
+                  "Natural Disasters",
+                  "major disasters"
+                )}
+                index={index}
+              />
             </Grid>
           </Grid>
         </Grid>
@@ -145,13 +178,34 @@ const InfoPanel = ({ imageWidth, imageHeight }) => {
             sx={{ height: "100%" }}
           >
             <Grid item>
-              <StatBox data={createData(3, testData, index)} index={index} />
+              <StatBox
+                data={createData(
+                  3,
+                  testData4,
+                  index,
+                  "Impact to Economy",
+                  "trillion"
+                )}
+                index={index}
+              />
             </Grid>
             <Grid item>
-              <StatBox data={createData(4, testData, index)} index={index} />
+              <StatBox
+                data={createData(4, testData5, index, "Gini Index (U.S.)", "%")}
+                index={index}
+              />
             </Grid>
             <Grid item>
-              <StatBox data={createData(5, testData, index)} index={index} />
+              <StatBox
+                data={createData(
+                  5,
+                  testData6,
+                  index,
+                  "Productivity Decrease",
+                  "%"
+                )}
+                index={index}
+              />
             </Grid>
           </Grid>
         </Grid>
