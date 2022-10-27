@@ -37,7 +37,7 @@ const Header = () => {
             }}>
               <Grid item>
                 <IconButton>
-                  <InfoIcon sx={{ color: "white" }}/>
+                  <InfoIcon sx={{ color: "#240090" }}/>
                 </IconButton>
               </Grid>
               <Grid item>
@@ -45,7 +45,7 @@ const Header = () => {
                         target="_blank"
                         rel="noreferrer">
                   <IconButton>
-                      <CodeIcon sx={{ color: "white" }} />
+                      <CodeIcon sx={{ color: "#240090" }} />
                   </IconButton>
                 </a>
               </Grid>
