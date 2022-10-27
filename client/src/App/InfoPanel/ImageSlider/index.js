@@ -30,8 +30,8 @@ const ImageSlider = ({ width, height, onChange }) => {
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
-        console.log(width);
-        console.log(height);
+        // console.log(width);
+        // console.log(height);
     });
 
     const blobToBase64 = (blob) => {
@@ -152,6 +152,94 @@ const ImageSlider = ({ width, height, onChange }) => {
             </Grid>
         </div>
     );
+<<<<<<< HEAD
+
+    setLoading(false);
+    setImages(bitMaps);
+
+    // fetch from second api route to get data
+    // pass json to onUpload
+    onUpload([]);
+  };
+
+  function drawImageScaled(img, ctx) {
+    var canvas = ctx.canvas;
+
+    ctx.drawImage(
+      img,
+      0,
+      0,
+      img.width,
+      img.height,
+      0,
+      0,
+      canvas.width,
+      canvas.height
+    );
+  }
+
+  return (
+    <div className="ImageSlider">
+      <div className="sweetLoading">
+        <GridLoader
+          color="white"
+          loading={loading}
+          size={10}
+          cssOverride={LoaderStyle}
+        />
+      </div>
+
+      <Grid container direction="column" justifyContent="center" spacing={2}>
+        <Grid item>
+          <Canvas
+            className="Canvas"
+            width={width}
+            height={height}
+            draw={(context) => {
+              context.clearRect(0, 0, width, height);
+              if (images) {
+                context.globalAlpha = 1;
+                drawImageScaled(images[Math.floor(imageIndex)], context);
+                context.globalAlpha = imageIndex - Math.floor(imageIndex);
+                drawImageScaled(
+                  images[Math.min(images.length - 1, Math.ceil(imageIndex))],
+                  context
+                );
+              }
+            }}
+          />
+        </Grid>
+
+        <Grid item>
+          <Box
+            margin="0 auto"
+            sx={{
+              width: width,
+            }}
+          >
+            <CustomSlider
+              aria-label="Year"
+              defaultValue={0}
+              valueLabelDisplay="auto"
+              step={0.01}
+              min={0}
+              max={images ? images.length - 1 : 0}
+              onChange={(e, value, activeThumb) => {
+                setImageIndex(value);
+                onChange(value);
+              }}
+            />
+          </Box>
+        </Grid>
+
+        <Grid item>
+          <ImageUpload handleUpload={handleUpload} />
+        </Grid>
+      </Grid>
+    </div>
+  );
+=======
+>>>>>>> e3555142704040ddab507c280756e507d16cf095
 };
 
 export default ImageSlider;
