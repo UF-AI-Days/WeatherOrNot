@@ -8,14 +8,20 @@ import ImageUpload from "../ImageUpload";
 import { styled } from "@mui/system";
 
 const CustomSlider = styled(Slider)(() => ({
-  color: "#240090",
+  color: "white",
   "& .MuiSlider-thumb": {
-    backgroundColor: "#3500D3",
+    backgroundColor: "white",
   },
 }));
 
 const ImageSlider = ({ images, width, height }) => {
   const [imageIndex, setImageIndex] = useState(0);
+  const [image, setImage] = useState(null);
+
+  const handleUpload = (img) => {
+    console.log(img);
+    setImage(img);
+  };
 
   function drawImageScaled(img, ctx) {
     var canvas = ctx.canvas;
@@ -44,7 +50,6 @@ const ImageSlider = ({ images, width, height }) => {
             height={height}
             draw={(context) => {
               context.clearRect(0, 0, width, height);
-
               if (images) {
                 context.globalAlpha = 1;
                 drawImageScaled(images[Math.floor(imageIndex)], context);
@@ -79,7 +84,7 @@ const ImageSlider = ({ images, width, height }) => {
         </Grid>
 
         <Grid item>
-          <ImageUpload />
+          <ImageUpload handleUpload={handleUpload}/>
         </Grid>
       </Grid>
     </div>
