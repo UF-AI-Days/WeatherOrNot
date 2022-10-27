@@ -7,9 +7,9 @@ const Home = () => {
     return (    
         <div className="Home">
             <InfoPanel
-		imageSources = {["hurricaneSandy-1.jpg","img3.jpg","akyOc.png"]}
-		imageWidth = {400}
-		imageHeight = {200}
+            imageSources = {["hurricaneSandy-1.jpg","img3.jpg","akyOc.png"]}
+            imageWidth = {"400px"}
+            imageHeight = {"200px"}
 	    ></InfoPanel>
         </div>
     );  

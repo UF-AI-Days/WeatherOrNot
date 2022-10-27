@@ -3,7 +3,7 @@
 .TitleVal {
     color: $light-purple;
     text-align: center;
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: bolder;
     margin: 0;
 }
@@ -11,10 +11,21 @@
 .Stat {
     color: $lighter-purple;
     text-align: center;
-    font-size: 1.25rem;
+    font-size: 1rem;
     margin: 0;
 }
 
 .StatBox {
     font-family: 'Consolas', sans-serif;
+}
+
+.LineChart {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 33%;
+}
+
+canvas{
+    width:300px !important;
 }

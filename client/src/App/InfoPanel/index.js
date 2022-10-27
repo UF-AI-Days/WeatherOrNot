@@ -4,21 +4,20 @@ import ImageSlider from './ImageSlider';
 import StatBox from './StatBox'
 import './index.scss';
 
-const testData = [
-    {year: 2022, val: 5},
-    {year: 2027, val: 20},
-    {year: 2032, val: 50},
-    {year: 2037, val: 100},
-];
+const testData = {
+    labels: ["2022", "2025", "2030", "2050"],
+    datasets: [{
+        data: [5, 10, 15, 20],
+        borderColor: '#CF9FFF',
+    }]
+};
 
 
 const test_image_sources = ["hurricaneSandy-1.jpg","img3.jpg","akyOc.png"]
 
-const InfoPanel  = ( {imageSources,width,height}  ) => {
+const InfoPanel  = ( {imageSources,imageWidth,imageHeight}  ) => {
     const [imageBitmaps, setImageBitmaps] = useState(  )
 
-    console.log(width)
-    
     const pushBitmaps = async () => {
 	const lol = await Promise.all(imageSources.map(
 	    async (elem) => {
@@ -28,8 +27,6 @@ const InfoPanel  = ( {imageSources,width,height}  ) => {
 		//console.log(imagebit)
 		return imagebit
 	    }))
-	console.log("here")
-	console.log(lol)
 	setImageBitmaps(lol)
     }
 
@@ -44,13 +41,16 @@ const InfoPanel  = ( {imageSources,width,height}  ) => {
                     direction="row"
                     wrap="nowrap"
                     justifyContent="center"
-                    sx={{ minHeight: '100%' }}
+                    sx={{ height: '100%' }}
                 >   
-                    <Grid item xs={4}>
+                    <Grid item xs={4} mt={-5} sx={{
+                        height: '100%'
+                    }}>
                         <Grid
                             container
                             direction="column"
                             justifyContent="center"
+                            sx={{ height: '100%' }}
                         >
                             <Grid item>
                                 <StatBox
@@ -58,7 +58,6 @@ const InfoPanel  = ( {imageSources,width,height}  ) => {
                                     val="Example"
                                 />
                             </Grid>
-=
                             <Grid item>
                                 <StatBox
                                     data={testData}
@@ -74,19 +73,23 @@ const InfoPanel  = ( {imageSources,width,height}  ) => {
                         </Grid>
                     </Grid>
 
-                    <Grid item xs={4} sx={{
+                    <Grid item xs={4} mt={-5} sx={{
                         display:'flex',
                         alignItems:'center',
-                        justifyContent:'center'
+                        justifyContent:'center',
+                        height: '100%'
                     }}>
-                        <ImageSlider images = {imageBitmaps} width = {width} height = {height} ></ImageSlider>
+                        <ImageSlider images = {imageBitmaps} width = {imageWidth} height = {imageHeight} ></ImageSlider>
                     </Grid>
 
-                    <Grid item xs={4}>
+                    <Grid item xs={4} mt={-5} sx={{
+                        height: '100%'
+                    }}>
                         <Grid
                             container
                             direction="column"
                             justifyContent="center"
+                            sx={{ height: '100%'}}
                         >
                             <Grid item>
                                 <StatBox
