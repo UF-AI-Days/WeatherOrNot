@@ -40,7 +40,7 @@ const Home = () => {
             <InfoPanel
             imageBitmaps = {imageBitmaps}
             imageWidth = {"400px"}
-            imageHeight = {"200px"}
+            imageHeight = {"400px"}
 	    ></InfoPanel>
         </div>
     );  
