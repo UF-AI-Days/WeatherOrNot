@@ -55,7 +55,7 @@ const ImageSlider = ({ width, height, onChange }) => {
         const response = await fetch("http://localhost:8000/magic", {
             method: "POST",
             body: {
-                "Image": uploadString
+                "Image": uploadString2
             }, // string or object
             headers: {
                 "Content-Type": "application/json",
