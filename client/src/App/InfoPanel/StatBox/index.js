@@ -1,19 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Stack } from '@mui/material';
-import { VictoryChart, VictoryLine, VictoryBar, VictoryAxis, LineSegment } from 'victory';
+import { VictoryChart, VictoryLine, VictoryBar, VictoryAxis, LineSegment, VictoryTheme } from 'victory';
 import './index.scss';
-
-const chartTheme = {
-    axis: {
-      style: {
-        tickLabels: {
-          fill: 'white',
-        },
-        
-      },
-    },
-  };
-
 
 const StatBox = ({
     data = null, val
@@ -35,19 +23,38 @@ const StatBox = ({
                     {data !== null ? data[data.length - 1].val : "N/A"}
                 </div>
                 {data !== null && <VictoryChart
-                    theme={chartTheme}
-                    domainPadding={20}
+                    theme={VictoryTheme.material}
+                    height={200}
+                    width={200}
+                    style={{ display: "block" }}
                 >
                     <VictoryAxis dependentAxis
+                        style={{
+                            axisLabel: {fontSize: 5},
+                            tickLabels: { 
+                                fill: "white",
+                                fontSize: 5
+                            }
+                        }}
                     />
                     <VictoryAxis
                         tickValues={ticks}
-                        style={{ tickLabels: {angle: 315}}}
+                        style={{ 
+                            axisLabel: {fontSize: 5},
+                            tickLabels: {
+                                angle: 315,
+                                fill: "white",
+                                fontSize: 5
+                            }
+                        }}
                     />
                     <VictoryLine
                         data={data}
                         x="year"
                         y="val"
+                        style={{
+                            data: { stroke: "#CF9FFF" },
+                        }}
                     />
                 </VictoryChart>}
             </Stack>

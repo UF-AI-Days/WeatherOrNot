@@ -2,16 +2,19 @@
 
 .TitleVal {
     color: $light-purple;
+    text-align: center;
     font-size: 2rem;
     font-weight: bolder;
+    margin: 0;
 }
 
 .Stat {
     color: $lighter-purple;
+    text-align: center;
     font-size: 1.25rem;
+    margin: 0;
 }
 
 .StatBox {
     font-family: 'Consolas', sans-serif;
-    margin: 0 auto;
 }
