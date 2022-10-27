@@ -44,8 +44,8 @@ const options = {
             }
         },
         y: {
+            min: 0,
             ticks: {
-                beginAtZero: true,
                 color: "white",
                 font: {
                     family: "Consolas"
