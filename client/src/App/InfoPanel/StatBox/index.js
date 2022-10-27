@@ -32,12 +32,29 @@ const options = {
     },
     scales: {
         x: {
-            color: "#000",
-            font: "Consolas",
+            ticks: {
+                color: "white",
+                font: {
+                    family: "Consolas"
+                },
+            },
+            grid: {
+                drawTicks: false,
+                color: "white"
+            }
         },
         y: {
-            color: "#000",
-            font: "Consolas"
+            ticks: {
+                beginAtZero: true,
+                color: "white",
+                font: {
+                    family: "Consolas"
+                },
+            }, 
+            grid: {
+                drawTicks: false,
+                color: "white"
+            }
         }
     }
 };
@@ -52,14 +69,16 @@ const StatBox = ({
         console.log(dataVals);
     })
 
-
     return (
         <div className="StatBox">
             <Stack spacing={1}>
                 <div className="Title">
                     <h1 className="TitleVal">{val}</h1>
                 </div>
-                <div className="Stat">
+                <div className="Stat"
+                    style={{
+                        color: data.datasets[0].borderColor
+                    }}>
                     {data !== null ? dataVals[dataVals.length - 1] : "N/A"}
                 </div>
                 {data !== null &&

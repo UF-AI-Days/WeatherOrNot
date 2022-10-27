@@ -4,14 +4,19 @@ import ImageSlider from './ImageSlider';
 import StatBox from './StatBox'
 import './index.scss';
 
-const testData = {
-    labels: ["2022", "2025", "2030", "2050"],
-    datasets: [{
-        data: [5, 10, 15, 20],
-        borderColor: '#CF9FFF',
-    }]
-};
+const colors = [
+    "#5fa55a", "#01b4bc", "#f6d51f", "#fa8925", "#fa5457", "#a55fa5"
+]
 
+const testData = (index) => {
+    return {
+        labels: ["2022", "2025", "2030", "2050"],
+        datasets: [{
+            data: [5, 10, 15, 20],
+            borderColor: colors[index],
+        }]
+    }
+}
 
 const test_image_sources = ["hurricaneSandy-1.jpg","img3.jpg","akyOc.png"]
 
@@ -43,30 +48,31 @@ const InfoPanel  = ( {imageSources,imageWidth,imageHeight}  ) => {
                     justifyContent="center"
                     sx={{ height: '100%' }}
                 >   
-                    <Grid item xs={4} mt={-5} sx={{
+                    <Grid item xs={4} mt={-3} sx={{
                         height: '100%'
                     }}>
                         <Grid
                             container
                             direction="column"
                             justifyContent="center"
+                            spacing={2}
                             sx={{ height: '100%' }}
                         >
                             <Grid item>
                                 <StatBox
-                                    data={testData}
+                                    data={testData(0)}
                                     val="Example"
                                 />
                             </Grid>
                             <Grid item>
                                 <StatBox
-                                    data={testData}
+                                    data={testData(1)}
                                     val="Example"
                                 />
                             </Grid>
                             <Grid item>
                                 <StatBox
-                                    data={testData}
+                                    data={testData(2)}
                                     val="Example"
                                 />
                             </Grid>
@@ -82,30 +88,31 @@ const InfoPanel  = ( {imageSources,imageWidth,imageHeight}  ) => {
                         <ImageSlider images = {imageBitmaps} width = {imageWidth} height = {imageHeight} ></ImageSlider>
                     </Grid>
 
-                    <Grid item xs={4} mt={-5} sx={{
+                    <Grid item xs={4} mt={-3} sx={{
                         height: '100%'
                     }}>
                         <Grid
                             container
                             direction="column"
                             justifyContent="center"
+                            spacing={2}
                             sx={{ height: '100%'}}
                         >
                             <Grid item>
                                 <StatBox
-                                    data={testData}
+                                    data={testData(3)}
                                     val="Example"
                                 />
                             </Grid>
                             <Grid item>
                                 <StatBox
-                                    data={testData}
+                                    data={testData(4)}
                                     val="Example"
                                 />
                             </Grid>
                             <Grid item>
                                 <StatBox
-                                    data={testData}
+                                    data={testData(5)}
                                     val="Example"
                                 />
                             </Grid>
