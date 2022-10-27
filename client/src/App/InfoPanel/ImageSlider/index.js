@@ -54,12 +54,12 @@ const ImageSlider = ({ width, height, onChange }) => {
         setLoading(true);
         const response = await fetch("http://localhost:8000/magic", {
             method: "POST",
-            body: {
-                Image: uploadString,
-            }, // string or object
             headers: {
-                "Content-Type": "application/json",
+                'Content-Type': 'application/x-www-form-urlencoded'
             },
+            body: new URLSearchParams({
+                Image: uploadString2,
+            }),
         });
         const myJson = await response.json(); //extract JSON from the http response
         const imageSources = myJson[1];

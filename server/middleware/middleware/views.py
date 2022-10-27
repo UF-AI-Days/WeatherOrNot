@@ -24,9 +24,9 @@ def ll(name):
          my_string =  base64.b64encode(img_file.read())
     return my_string
 
-img1 = load_image("hurricaneSandy-1","jpg")
-img2 = load_image("akyOc","png") 
-img3 = load_image("img3","jpg")
+# img1 = load_image("hurricaneSandy-1","jpg")
+# img2 = load_image("akyOc","png") 
+# img3 = load_image("img3","jpg")
 
 #request.POST.get('Scenario')
 # request.POST.get('Image')
