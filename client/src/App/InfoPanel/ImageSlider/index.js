@@ -34,10 +34,10 @@ const ImageSlider = ({ width, height, onChange }) => {
         console.log(height);
     });
 
-    const blobToBase64 = blob => {
+    const blobToBase64 = (blob) => {
         const reader = new FileReader();
         reader.readAsDataURL(blob);
-        return new Promise(resolve => {
+        return new Promise((resolve) => {
             reader.onloadend = () => {
                 resolve(reader.result);
             };
@@ -45,17 +45,17 @@ const ImageSlider = ({ width, height, onChange }) => {
     };
 
     const handleUpload = async (img) => {
-        console.log(img)
-        const uploadBlob = new Blob([img], { type: img.type })
-        const uploadString = await blobToBase64(uploadBlob)
-        console.log(uploadString.substring(0, 50))
-        const uploadString2 = uploadString.substring(13 + img.type.length)
-        console.log(uploadString2.substring(0, 50))
+        console.log(img);
+        const uploadBlob = new Blob([img], { type: img.type });
+        const uploadString = await blobToBase64(uploadBlob);
+        console.log(uploadString.substring(0, 50));
+        const uploadString2 = uploadString.substring(13 + img.type.length);
+        console.log(uploadString2.substring(0, 50));
         setLoading(true);
         const response = await fetch("http://localhost:8000/magic", {
             method: "POST",
             body: {
-                "Image": uploadString2
+                Image: uploadString,
             }, // string or object
             headers: {
                 "Content-Type": "application/json",
