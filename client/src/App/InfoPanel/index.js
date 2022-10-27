@@ -48,7 +48,7 @@ const InfoPanel  = ( {imageSources,imageWidth,imageHeight}  ) => {
                     justifyContent="center"
                     sx={{ height: '100%' }}
                 >   
-                    <Grid item xs={4} mt={-3} sx={{
+                    <Grid item xs={3} mt={-3} sx={{
                         height: '100%'
                     }}>
                         <Grid
@@ -79,16 +79,32 @@ const InfoPanel  = ( {imageSources,imageWidth,imageHeight}  ) => {
                         </Grid>
                     </Grid>
 
-                    <Grid item xs={4} mt={-5} sx={{
+                    <Grid item xs={5} mt={-5} sx={{
                         display:'flex',
                         alignItems:'center',
                         justifyContent:'center',
-                        height: '100%'
+                        height: '100%',
+                        padding: "0 3rem"
                     }}>
-                        <ImageSlider images = {imageBitmaps} width = {imageWidth} height = {imageHeight} ></ImageSlider>
+                        <Grid container
+                              direction="column"
+                              justifyContent='center'
+                              alignItems='center'
+                              sx = {{
+                                height: '100%'
+                              }}
+                              spacing={4}
+                        >
+                            <Grid className="Sticky" item>
+                                <h1 className="Location">Boca Raton, FL</h1>
+                            </Grid>
+                            <Grid item>
+                                <ImageSlider images = {imageBitmaps} width = {imageWidth} height = {imageHeight} ></ImageSlider>
+                            </Grid>
+                        </Grid>
                     </Grid>
 
-                    <Grid item xs={4} mt={-3} sx={{
+                    <Grid item xs={3} mt={-3} sx={{
                         height: '100%'
                     }}>
                         <Grid

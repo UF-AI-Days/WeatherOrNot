@@ -1,6 +1,7 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import './index.scss';
 
 const Canvas = ({draw, height, width}) => {
     const canvas = React.useRef();
@@ -11,7 +12,7 @@ const Canvas = ({draw, height, width}) => {
     });
 
     return (
-	<canvas ref={canvas} height={height} width={width} />
+	<canvas className="Canvas" ref={canvas} height={height} width={width} />
     );
 };
 
