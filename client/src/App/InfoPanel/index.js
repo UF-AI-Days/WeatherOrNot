@@ -20,24 +20,8 @@ const testData = (index) => {
 
 const test_image_sources = ["hurricaneSandy-1.jpg","img3.jpg","akyOc.png"]
 
-const InfoPanel  = ( {imageSources,imageWidth,imageHeight}  ) => {
-    const [imageBitmaps, setImageBitmaps] = useState(  )
-
-    const pushBitmaps = async () => {
-	const lol = await Promise.all(imageSources.map(
-	    async (elem) => {
-		const response = await fetch(elem)
-		const imageBlob = await response.blob()
-		const imagebit = await createImageBitmap(imageBlob)
-		//console.log(imagebit)
-		return imagebit
-	    }))
-	setImageBitmaps(lol)
-    }
-
-    useEffect( () => {
-	pushBitmaps()
-    }, [])
+const InfoPanel  = ( {imageBitmaps,imageWidth,imageHeight}  ) => {
+    
     
     return (   
         <div className="Info">
