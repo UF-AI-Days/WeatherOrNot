@@ -4,9 +4,11 @@ import PIL
 from PIL import Image
 from io import BytesIO
 import io
-from torch import autocast
+# from torch import autocast
 import torch
 from diffusers import StableDiffusionInpaintPipeline as StableDiffusionInpaintPipeline
+
+
 
 def download_image(url):
     response = requests.get(url)
@@ -17,20 +19,20 @@ def download_image(url):
 def spatial_diffusion_inpainting(TOKEN,scenario,image):
     # Determine Prompts
     if scenario == "Water":
-        prompt_1 = "rain,wind, dark skies, flooding, no people"
-        prompt_2 = "flooding,water, thunder storm,hurricane, destruction, no people"
-        prompt_3 = "flooding everywhere,water, thunder storm,heavy intense rain, hurricane conditions, destruction, disastor, completec chaos, no people"
-        prompt_4 = "extreme flooding and damge, destroyed infrastrucure, severe flooding, houses destroyed, building destroyed, destruction, flooding everywhere, houses blown away, chaos, dark skies, thunder storms, dark clouds"
+        prompt_1 = "rain, wind, dark skies, flooding, no people"
+        prompt_2 = "flooding, water, thunderstorm, hurricane, destruction, no people"
+        prompt_3 = "flooding everywhere, water, thunder storm, heavy intense rain, hurricane conditions, destruction, disaster, complete chaos, no people"
+        prompt_4 = "extreme flooding and damage, destroyed infrastructure, severe flooding, houses destroyed, building destroyed, destruction, flooding everywhere, houses blown away, chaos, dark skies, thunder storms, dark clouds"
     elif scenario == "Fire":
         prompt_1 = "smoke in sky, building on fire,flame, destruction,no people"
-        prompt_2 = "fire destroying buildings, smoke in sky, no people, fire, buildings on fire, flame, building and infrustucture on fire"
-        prompt_3 = "smoke in sky, no people, fire, building and infrustucture on fire, distruction, disastor, fire everywhere, chaos"
-        prompt_4 = "smoke in sky, no people, fire, building and infrustucture on fire, distruction, disastor, fire everywhere, chaos, burnt, black, charcoal, flames, wildfire"
+        prompt_2 = "fire destroying buildings, smoke in sky, no people, fire, buildings on fire, flame, building and infrastructure on fire"
+        prompt_3 = "smoke in sky, no people, fire, building and infrastructure on fire, destruction, disaster, fire everywhere, chaos"
+        prompt_4 = "smoke in sky, no people, fire, building and infrastructure on fire, destruction, disaster, fire everywhere, chaos, burnt, black, charcoal, flames, wildfire"
     elif scenario == "Desert":
-        prompt_1 = "drougts, deserts, no water, fire, more sand, no people"
-        prompt_2 = "fire destroying buildings, smoke in sky, no people, fire, buildings on fire, flame, building and infrustucture on fire, no people"
-        prompt_3 = "sand everwhere, drought, no water, deserted no people, dry and arid,fire destroying buildings, smoke in sky, no people, fire, buildings on fire, flame, building and infrustucture on fire, no people"
-        prompt_4 = "sand everwhere, drought, no water, deserted no people, dry and arid,fire destroying buildings, smoke in sky, no people, fire, buildings on fire, flame, building and infrustucture on fire, no people, post apoctalyptic, end of the world"
+        prompt_1 = "droughts, deserts, no water, fire, more sand, no people"
+        prompt_2 = "fire destroying buildings, smoke in sky, no people, fire, buildings on fire, flame, building and infrastructure on fire, no people"
+        prompt_3 = "sand everywhere, drought, no water, deserted no people, dry and arid,fire destroying buildings, smoke in sky, no people, fire, buildings on fire, flame, building and infrastructure on fire, no people"
+        prompt_4 = "sand everywhere, drought, no water, deserted no people, dry and arid,fire destroying buildings, smoke in sky, no people, fire, buildings on fire, flame, building and infrastructure on fire, no people, post apocalyptic, end of the world"
     prompt_list = [prompt_1,prompt_2,prompt_3,prompt_4]
     intensity = [0.15,0.3,0.5,0.55]
     
@@ -52,7 +54,7 @@ def spatial_diffusion_inpainting(TOKEN,scenario,image):
     
     images_list = []
     for i in range(len(prompt_list)):
-      with autocast("cuda"):
+      with torch.cuda.amp.autocast(True):
           image = pipe(prompt= prompt_list[i], init_image=init_image, mask_image=mask_image, strength=intensity[i])
           images_list.append(image)
         
