@@ -1,16 +1,72 @@
 import React, { useEffect, useState } from 'react';
 import { Stack } from '@mui/material';
-import { VictoryChart, VictoryLine, VictoryBar, VictoryAxis, LineSegment, VictoryTheme } from 'victory';
+import {
+    Chart as ChartJS,
+    CategoryScale,
+    LinearScale,
+    PointElement,
+    LineElement,
+    Title,
+    Tooltip,
+    Legend,
+} from 'chart.js';
+import { Line } from 'react-chartjs-2';
 import './index.scss';
+
+ChartJS.register(
+    CategoryScale,
+    LinearScale,
+    PointElement,
+    LineElement,
+    Title,
+    Tooltip,
+    Legend
+);
+
+const options = {
+    responsive: false,
+    plugins: {
+        legend: {
+          display: false
+        },
+    },
+    scales: {
+        x: {
+            ticks: {
+                color: "white",
+                font: {
+                    family: "Consolas"
+                },
+            },
+            grid: {
+                drawTicks: false,
+                color: "white"
+            }
+        },
+        y: {
+            ticks: {
+                beginAtZero: true,
+                color: "white",
+                font: {
+                    family: "Consolas"
+                },
+            }, 
+            grid: {
+                drawTicks: false,
+                color: "white"
+            }
+        }
+    }
+};
 
 const StatBox = ({
     data = null, val
 }) => {
-    const [ticks, setTicks] = useState(Object.keys(data).map((key) => data[key].year));
+    const [dataVals, setDataVals] = useState(data.datasets[0].data);
+
     useEffect(() => {
         console.log(data);
-        console.log(Object.keys(data).map((key) => data[key].year));
-        // console.log(data.length);
+        console.log(dataVals);
     })
 
     return (
@@ -19,44 +75,18 @@ const StatBox = ({
                 <div className="Title">
                     <h1 className="TitleVal">{val}</h1>
                 </div>
-                <div className="Stat">
-                    {data !== null ? data[data.length - 1].val : "N/A"}
+                <div className="Stat"
+                    style={{
+                        color: data.datasets[0].borderColor
+                    }}>
+                    {data !== null ? dataVals[dataVals.length - 1] : "N/A"}
                 </div>
-                {data !== null && <VictoryChart
-                    theme={VictoryTheme.material}
-                    height={200}
-                    width={200}
-                    style={{ display: "block" }}
-                >
-                    <VictoryAxis dependentAxis
-                        style={{
-                            axisLabel: {fontSize: 5},
-                            tickLabels: { 
-                                fill: "white",
-                                fontSize: 5
-                            }
-                        }}
-                    />
-                    <VictoryAxis
-                        tickValues={ticks}
-                        style={{ 
-                            axisLabel: {fontSize: 5},
-                            tickLabels: {
-                                angle: 315,
-                                fill: "white",
-                                fontSize: 5
-                            }
-                        }}
-                    />
-                    <VictoryLine
-                        data={data}
-                        x="year"
-                        y="val"
-                        style={{
-                            data: { stroke: "#CF9FFF" },
-                        }}
-                    />
-                </VictoryChart>}
+                {data !== null &&
+                    <div className="LineChart">
+                        <Line 
+                            options={options}
+                            data={data}/>
+                    </div>}
             </Stack>
         </div>
     )
