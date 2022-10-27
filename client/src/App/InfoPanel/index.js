@@ -14,6 +14,7 @@ const colors = [
 ];
 
 const testData = [5, 10, 15, 20];
+const years = ["2022", "2027", "2032", "2037"];
 const createData = (
   colorIndex,
   data,
@@ -24,7 +25,7 @@ const createData = (
   return {
     title: title,
     units: units,
-    labels: ["2022", "2025", "2030", "2050"],
+    labels: years,
     datasets: [
       {
         data: data.slice(0, index + 1),
@@ -36,8 +37,20 @@ const createData = (
 
 const InfoPanel = ({ imageWidth, imageHeight }) => {
   const [index, setIndex] = useState(-1);
+  const [location, setLocation] = useState("");
+  const [year, setYear] = useState("");
+
   const onChange = (index) => {
-    if (index != 0) setIndex(index);
+    if (index != 0) {
+      setIndex(index);
+      setYear(index);
+    }
+  };
+
+  const onUpload = (data) => {
+    console.log(data);
+    setLocation("Florida");
+    setLocation("2027");
   };
 
   return (
@@ -99,13 +112,18 @@ const InfoPanel = ({ imageWidth, imageHeight }) => {
             spacing={4}
           >
             <Grid className="Sticky" item>
-              <h1 className="Location">Boca Raton, FL</h1>
+              <h1 className="Location">
+                {location == ""
+                  ? "Please Upload Image"
+                  : `${location}, ${year}`}
+              </h1>
             </Grid>
             <Grid item>
               <ImageSlider
                 width={imageWidth}
                 height={imageHeight}
                 onChange={onChange}
+                onUpload={onUpload}
               ></ImageSlider>
             </Grid>
           </Grid>

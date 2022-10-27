@@ -24,14 +24,14 @@ const LoaderStyle = {
   transform: "translate(-50%, -50%)",
 };
 
-const ImageSlider = ({ width, height, onChange }) => {
+const ImageSlider = ({ width, height, onChange, onUpload }) => {
   const [imageIndex, setImageIndex] = useState(0);
   const [images, setImages] = useState(null);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    console.log(width);
-    console.log(height);
+    // console.log(width);
+    // console.log(height);
   });
 
   const blobToBase64 = (blob) => {
@@ -74,6 +74,10 @@ const ImageSlider = ({ width, height, onChange }) => {
 
     setLoading(false);
     setImages(bitMaps);
+
+    // fetch from second api route to get data
+    // pass json to onUpload
+    onUpload([]);
   };
 
   function drawImageScaled(img, ctx) {
