@@ -22,9 +22,10 @@
   height: 3.5rem;
 }
 
-.Header h1 {
+.Title {
   color: $theme;
+  font-family: 'Consolas', sans-serif;
+  font-weight: bolder;
   cursor: pointer;
   margin: 0 auto;
-  font: Roboto;
 }

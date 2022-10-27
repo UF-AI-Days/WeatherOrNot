@@ -1,15 +1,13 @@
 import React, { useState } from "react";
 
-const ImageUpload = () => {
-  const [selectedImage, setSelectedImage] = useState(null);
-
+const ImageUpload = ({ handleUpload }) => {
   return (
     <div>
       <input
         type="file"
         name="image"
         onChange={(event) => {
-          setSelectedImage(event.target.files[0]);
+          handleUpload(event.target.files[0]);
         }}
       />
     </div>
