@@ -5,6 +5,7 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Canvas from "../../Canvas";
 import ImageUpload from "../ImageUpload";
+import GridLoader from "react-spinners/GridLoader";
 
 import { styled } from "@mui/system";
 
@@ -15,18 +16,27 @@ const CustomSlider = styled(Slider)(() => ({
   },
 }));
 
-const ImageSlider = ({ images, width, height }) => {
+const LoaderStyle = {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  marginRight: "-50%",
+  transform: "translate(-50%, -50%)",
+};
+
+const ImageSlider = ({ width, height, onChange }) => {
   const [imageIndex, setImageIndex] = useState(0);
-  const [image, setImage] = useState(null);
-  //   const [images, setImages] = useState(initImages);
+  const [images, setImages] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    // console.log(initImages);
+    console.log(width);
+    console.log(height);
   });
 
   const handleUpload = async (img) => {
-    setImage(img);
-
+    console.log(img);
+    setLoading(true);
     const response = await fetch("http://localhost:8000/magic", {
       method: "POST",
       body: "lol,lmao", // string or object
@@ -45,7 +55,8 @@ const ImageSlider = ({ images, width, height }) => {
       })
     );
 
-    // setImages(bitMaps);
+    setLoading(false);
+    setImages(bitMaps);
   };
 
   function drawImageScaled(img, ctx) {
@@ -66,6 +77,15 @@ const ImageSlider = ({ images, width, height }) => {
 
   return (
     <div className="ImageSlider">
+      <div className="sweetLoading">
+        <GridLoader
+          color="white"
+          loading={loading}
+          size={10}
+          cssOverride={LoaderStyle}
+        />
+      </div>
+
       <Grid container direction="column" justifyContent="center" spacing={2}>
         <Grid item>
           <Canvas
@@ -89,8 +109,9 @@ const ImageSlider = ({ images, width, height }) => {
 
         <Grid item>
           <Box
+            margin="0 auto"
             sx={{
-              width: width * 0.8,
+              width: width,
             }}
           >
             <CustomSlider
@@ -102,6 +123,7 @@ const ImageSlider = ({ images, width, height }) => {
               max={images ? images.length - 1 : 0}
               onChange={(e, value, activeThumb) => {
                 setImageIndex(value);
+                onChange(value);
               }}
             />
           </Box>

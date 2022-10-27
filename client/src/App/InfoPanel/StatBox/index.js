@@ -59,7 +59,7 @@ const options = {
   },
 };
 
-const StatBox = ({ data = null, val }) => {
+const StatBox = ({ data = null, val, index = 0 }) => {
   const [dataVals, setDataVals] = useState(data.datasets[0].data);
 
   useEffect(() => {
@@ -79,7 +79,7 @@ const StatBox = ({ data = null, val }) => {
             color: data.datasets[0].borderColor,
           }}
         >
-          {data !== null ? dataVals[dataVals.length - 1] : "N/A"}
+          {(data !== null ? dataVals[index] : "N/A") + " units"}
         </div>
         {data !== null && (
           <div className="LineChart">

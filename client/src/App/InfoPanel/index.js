@@ -13,21 +13,26 @@ const colors = [
   "#a55fa5",
 ];
 
-const testData = (index) => {
+const testData = [5, 10, 15, 20];
+const createData = (colorIndex, data, index) => {
   return {
     labels: ["2022", "2025", "2030", "2050"],
     datasets: [
       {
-        data: [5, 10, 15, 20],
-        borderColor: colors[index],
+        data: data.slice(0, index + 1),
+        borderColor: colors[colorIndex],
       },
     ],
   };
 };
 
-const test_image_sources = ["hurricaneSandy-1.jpg", "img3.jpg", "akyOc.png"];
+const InfoPanel = ({ imageWidth, imageHeight }) => {
+  const [index, setIndex] = useState(0);
+  const onChange = (index) => {
+    console.log(index);
+    setIndex(index);
+  };
 
-const InfoPanel = ({ imageBitmaps, imageWidth, imageHeight }) => {
   return (
     <div className="Info">
       <Grid
@@ -53,13 +58,13 @@ const InfoPanel = ({ imageBitmaps, imageWidth, imageHeight }) => {
             sx={{ height: "100%" }}
           >
             <Grid item>
-              <StatBox data={testData(0)} val="Example" />
+              <StatBox data={createData(0, testData, index)} val="Example" />
             </Grid>
             <Grid item>
-              <StatBox data={testData(1)} val="Example" />
+              <StatBox data={createData(1, testData, index)} val="Example" />
             </Grid>
             <Grid item>
-              <StatBox data={testData(2)} val="Example" />
+              <StatBox data={createData(2, testData, index)} val="Example" />
             </Grid>
           </Grid>
         </Grid>
@@ -67,7 +72,7 @@ const InfoPanel = ({ imageBitmaps, imageWidth, imageHeight }) => {
         <Grid
           item
           xs={5}
-          mt={-5}
+          mt={-7}
           sx={{
             display: "flex",
             alignItems: "center",
@@ -91,9 +96,9 @@ const InfoPanel = ({ imageBitmaps, imageWidth, imageHeight }) => {
             </Grid>
             <Grid item>
               <ImageSlider
-                images={imageBitmaps}
                 width={imageWidth}
                 height={imageHeight}
+                onChange={onChange}
               ></ImageSlider>
             </Grid>
           </Grid>
@@ -115,13 +120,13 @@ const InfoPanel = ({ imageBitmaps, imageWidth, imageHeight }) => {
             sx={{ height: "100%" }}
           >
             <Grid item>
-              <StatBox data={testData(3)} val="Example" />
+              <StatBox data={createData(3, testData, index)} val="Example" />
             </Grid>
             <Grid item>
-              <StatBox data={testData(4)} val="Example" />
+              <StatBox data={createData(4, testData, index)} val="Example" />
             </Grid>
             <Grid item>
-              <StatBox data={testData(5)} val="Example" />
+              <StatBox data={createData(5, testData, index)} val="Example" />
             </Grid>
           </Grid>
         </Grid>
