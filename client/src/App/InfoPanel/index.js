@@ -58,7 +58,6 @@ const InfoPanel  = ( {imageSources,width,height}  ) => {
                                     val="Example"
                                 />
                             </Grid>
-=
                             <Grid item>
                                 <StatBox
                                     data={testData}
