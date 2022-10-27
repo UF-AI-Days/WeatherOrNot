@@ -29,10 +29,10 @@ const ImageSlider = ({ width, height, onChange }) => {
   const [images, setImages] = useState(null);
   const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    console.log(width);
-    console.log(height);
-  });
+//   useEffect(() => {
+//     console.log(width);
+//     console.log(height);
+//   });
 
   const handleUpload = async (img) => {
     console.log(img);
