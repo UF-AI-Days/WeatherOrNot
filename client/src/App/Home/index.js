@@ -4,6 +4,21 @@ import './index.scss';
 
 
 const Home = () => {
+
+    const userAction = async () => {
+        const response = await fetch('http://localhost:8000/magic', {
+          method: 'POST',
+          body: "lol,lmao", // string or object
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        });
+        const myJson = await response.json(); //extract JSON from the http response
+        console.log(myJson)
+        // do something with myJson
+      }
+      userAction()
+
     return (    
         <div className="Home">
             <InfoPanel
