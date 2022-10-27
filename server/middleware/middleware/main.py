@@ -4,7 +4,7 @@ import PIL
 from PIL import Image
 from io import BytesIO
 import io
-from torch import autocast
+# from torch import autocast
 import torch
 from diffusers import StableDiffusionInpaintPipeline as StableDiffusionInpaintPipeline
 
@@ -52,7 +52,7 @@ def spatial_diffusion_inpainting(TOKEN,scenario,image):
     
     images_list = []
     for i in range(len(prompt_list)):
-      with autocast("cuda"):
+      with torch.cuda.amp.autocast(True):
           image = pipe(prompt= prompt_list[i], init_image=init_image, mask_image=mask_image, strength=intensity[i])
           images_list.append(image)
         
