@@ -24,7 +24,6 @@ const ImageSlider  = ({images,width,height}) => {
         var ratio  = Math.min ( hRatio, vRatio );
         var centerShift_x = ( canvas.width - img.width*ratio ) / 2;
         var centerShift_y = ( canvas.height - img.height*ratio ) / 2;  
-        ctx.clearRect(0,0,canvas.width, canvas.height);
         ctx.drawImage(img, 0,0, img.width, img.height,
                            centerShift_x,centerShift_y,img.width*ratio, img.height*ratio);  
      }
@@ -45,12 +44,12 @@ const ImageSlider  = ({images,width,height}) => {
                     draw = {(context) => {
                         context.clearRect(0,0,width,height)
 			    
-                    if(images){
-                    context.globalAlpha = 1
-                    drawImageScaled(images[ Math.floor(imageIndex) ], context);
-                    context.globalAlpha = imageIndex - Math.floor(imageIndex)
-                    drawImageScaled(images[ Math.min(images.length -1, Math.ceil(imageIndex)) ], context);
-                    }
+                        if(images){
+                            context.globalAlpha = 1
+                            drawImageScaled(images[ Math.floor(imageIndex) ], context);
+                            context.globalAlpha = imageIndex - Math.floor(imageIndex)
+                            drawImageScaled(images[ Math.min(images.length -1, Math.ceil(imageIndex)) ], context);
+                        }
 
 			    
 			}}
