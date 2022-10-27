@@ -4,6 +4,14 @@ import ImageSlider from './ImageSlider';
 import StatBox from './StatBox'
 import './index.scss';
 
+const testData = [
+    {year: 2022, val: 5},
+    {year: 2027, val: 20},
+    {year: 2032, val: 50},
+    {year: 2037, val: 100},
+];
+
+
 const test_image_sources = ["hurricaneSandy-1.jpg","img3.jpg","akyOc.png"]
 
 const InfoPanel  = ( {imageSources,width,height}  ) => {
@@ -35,50 +43,71 @@ const InfoPanel  = ( {imageSources,width,height}  ) => {
                     container
                     direction="row"
                     wrap="nowrap"
-                    alignItems="flex-start"
                     justifyContent="center"
                     sx={{ minHeight: '100%' }}
                 >   
-                    <Grid item>
-                            <Grid
-                                container
-                                direction="column"
-                                alignItems="flex-start"
-                                justifyContent="center"
-                            >
-                                <Grid item>
-                                    <StatBox>lol</StatBox>
-                                </Grid>
-                                <Grid item>
-                                    <StatBox>lol2</StatBox>
-                                </Grid>
-                                <Grid item>
-                                    <StatBox>lol3</StatBox>
-                                </Grid>
+                    <Grid item xs={4}>
+                        <Grid
+                            container
+                            direction="column"
+                            justifyContent="center"
+                        >
+                            <Grid item>
+                                <StatBox
+                                    data={testData}
+                                    val="Example"
+                                />
+                            </Grid>
+=
+                            <Grid item>
+                                <StatBox
+                                    data={testData}
+                                    val="Example"
+                                />
+                            </Grid>
+                            <Grid item>
+                                <StatBox
+                                    data={testData}
+                                    val="Example"
+                                />
                             </Grid>
                         </Grid>
-                        <Grid item>
-                            <ImageSlider images = {imageBitmaps} width = {width} height = {height} ></ImageSlider>
-                        </Grid>
-                        <Grid item>
-                            <Grid
-                                container
-                                direction="column"
-                                alignItems="flex-start"
-                                justifyContent="center"
-                            >
-                                <Grid item>
-                                    <StatBox>lol</StatBox>
-                                </Grid>
-                                <Grid item>
-                                    <StatBox>lol2</StatBox>
-                                </Grid>
-                                <Grid item>
-                                    <StatBox>lol3</StatBox>
-                                </Grid>
-                            </Grid>
-                        </Grid>
+                    </Grid>
 
+                    <Grid item xs={4} sx={{
+                        display:'flex',
+                        alignItems:'center',
+                        justifyContent:'center'
+                    }}>
+                        <ImageSlider images = {imageBitmaps} width = {width} height = {height} ></ImageSlider>
+                    </Grid>
+
+                    <Grid item xs={4}>
+                        <Grid
+                            container
+                            direction="column"
+                            justifyContent="center"
+                        >
+                            <Grid item>
+                                <StatBox
+                                    data={testData}
+                                    val="Example"
+                                />
+                            </Grid>
+                            <Grid item>
+                                <StatBox
+                                    data={testData}
+                                    val="Example"
+                                />
+                            </Grid>
+                            <Grid item>
+                                <StatBox
+                                    data={testData}
+                                    val="Example"
+                                />
+                            </Grid>
+                        </Grid>
+                    </Grid>
                 </Grid>
             </div>
     )

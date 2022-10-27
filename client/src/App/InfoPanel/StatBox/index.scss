@@ -1,1 +1,17 @@
-@import '../../_variables.scss';
+@import '../../../_variables.scss';
+
+.TitleVal {
+    color: $light-purple;
+    font-size: 2rem;
+    font-weight: bolder;
+}
+
+.Stat {
+    color: $lighter-purple;
+    font-size: 1.25rem;
+}
+
+.StatBox {
+    font-family: 'Consolas', sans-serif;
+    margin: 0 auto;
+}
