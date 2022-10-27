@@ -2,6 +2,8 @@ from django.http import HttpResponse
 from django.http import JsonResponse
 import base64
 
+
+
 def main_view(request):
     image_data = ""
     # with open(request.POST.get('image'), "rb") as image_file:
