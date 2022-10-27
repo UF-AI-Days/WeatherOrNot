@@ -59,19 +59,14 @@ const options = {
   },
 };
 
-const StatBox = ({ data = null, val, index = 0 }) => {
-  const [dataVals, setDataVals] = useState(data.datasets[0].data);
-
-  useEffect(() => {
-    // console.log(data);
-    // console.log(dataVals);
-  });
+const StatBox = ({ data = null, index = 0 }) => {
+  useEffect(() => {});
 
   return (
     <div className="StatBox">
       <Stack spacing={1}>
         <div className="Title">
-          <h1 className="TitleVal">{val}</h1>
+          <h1 className="TitleVal">{data.title}</h1>
         </div>
         <div
           className="Stat"
@@ -79,7 +74,9 @@ const StatBox = ({ data = null, val, index = 0 }) => {
             color: data.datasets[0].borderColor,
           }}
         >
-          {(data !== null ? dataVals[index] : "N/A") + " units"}
+          {data !== null && index >= 0
+            ? data.datasets[0].data[Math.trunc(index)] + " " + data.units
+            : "N/A"}
         </div>
         {data !== null && (
           <div className="LineChart">

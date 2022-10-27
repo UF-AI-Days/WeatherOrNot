@@ -14,8 +14,16 @@ const colors = [
 ];
 
 const testData = [5, 10, 15, 20];
-const createData = (colorIndex, data, index) => {
+const createData = (
+  colorIndex,
+  data,
+  index,
+  title = "Example",
+  units = "units"
+) => {
   return {
+    title: title,
+    units: units,
     labels: ["2022", "2025", "2030", "2050"],
     datasets: [
       {
@@ -27,10 +35,9 @@ const createData = (colorIndex, data, index) => {
 };
 
 const InfoPanel = ({ imageWidth, imageHeight }) => {
-  const [index, setIndex] = useState(0);
+  const [index, setIndex] = useState(-1);
   const onChange = (index) => {
-    console.log(index);
-    setIndex(index);
+    if (index != 0) setIndex(index);
   };
 
   return (
@@ -58,13 +65,13 @@ const InfoPanel = ({ imageWidth, imageHeight }) => {
             sx={{ height: "100%" }}
           >
             <Grid item>
-              <StatBox data={createData(0, testData, index)} val="Example" />
+              <StatBox data={createData(0, testData, index)} index={index} />
             </Grid>
             <Grid item>
-              <StatBox data={createData(1, testData, index)} val="Example" />
+              <StatBox data={createData(1, testData, index)} index={index} />
             </Grid>
             <Grid item>
-              <StatBox data={createData(2, testData, index)} val="Example" />
+              <StatBox data={createData(2, testData, index)} index={index} />
             </Grid>
           </Grid>
         </Grid>
@@ -120,13 +127,13 @@ const InfoPanel = ({ imageWidth, imageHeight }) => {
             sx={{ height: "100%" }}
           >
             <Grid item>
-              <StatBox data={createData(3, testData, index)} val="Example" />
+              <StatBox data={createData(3, testData, index)} index={index} />
             </Grid>
             <Grid item>
-              <StatBox data={createData(4, testData, index)} val="Example" />
+              <StatBox data={createData(4, testData, index)} index={index} />
             </Grid>
             <Grid item>
-              <StatBox data={createData(5, testData, index)} val="Example" />
+              <StatBox data={createData(5, testData, index)} index={index} />
             </Grid>
           </Grid>
         </Grid>
