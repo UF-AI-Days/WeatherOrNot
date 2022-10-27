@@ -24,7 +24,7 @@ const LoaderStyle = {
     transform: "translate(-50%, -50%)",
 };
 
-const ImageSlider = ({ width, height, onChange }) => {
+const ImageSlider = ({ width, height, onChange, onUpload }) => {
     const [imageIndex, setImageIndex] = useState(0);
     const [images, setImages] = useState(null);
     const [loading, setLoading] = useState(false);
