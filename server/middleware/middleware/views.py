@@ -17,4 +17,4 @@ from middleware.main import spatial_diffusion_inpainting
 def main_view(request):
     image_data = ""
     img_list = spatial_diffusion_inpainting('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', request.POST.get('Scenario'), request.POST.get('Image'))
-    return JsonResponse({1: [img_list[0][0][0],img_list[1][0][0],img_list[2][0][0]],img_list[3][0][0] 2: 'HEHE'})
+    return JsonResponse({1: [img_list[0][0][0],img_list[1][0][0],img_list[2][0][0],img_list[3][0][0]], 2: 'HEHE'})

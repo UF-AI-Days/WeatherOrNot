@@ -8,8 +8,6 @@ import ImageUpload from "../ImageUpload";
 
 import { styled } from "@mui/system";
 
-const image_sources = ["hurricaneSandy-1.jpg", "logo192.png", "logo512.png"];
-
 const CustomSlider = styled(Slider)(() => ({
   color: "white",
   "& .MuiSlider-thumb": {
@@ -52,11 +50,6 @@ const ImageSlider = ({ images, width, height }) => {
 
   function drawImageScaled(img, ctx) {
     var canvas = ctx.canvas;
-    var hRatio = canvas.width / img.width;
-    var vRatio = canvas.height / img.height;
-    var ratio = Math.min(hRatio, vRatio);
-    var centerShift_x = (canvas.width - img.width * ratio) / 2;
-    var centerShift_y = (canvas.height - img.height * ratio) / 2;
 
     ctx.drawImage(
       img,
@@ -64,10 +57,10 @@ const ImageSlider = ({ images, width, height }) => {
       0,
       img.width,
       img.height,
-      centerShift_x,
-      centerShift_y,
-      img.width * ratio,
-      img.height * ratio
+      0,
+      0,
+      canvas.width,
+      canvas.height
     );
   }
 
