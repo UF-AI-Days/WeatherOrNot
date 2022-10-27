@@ -16,11 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from middleware.views import main_view
+from django.views.decorators.csrf import csrf_exempt
 
 urlpatterns = [
     path('admin/', admin.site.urls),
 ]   
 
 urlpatterns = [
-    path('magic/', main_view)
+    path('magic', csrf_exempt(main_view))
 ]
